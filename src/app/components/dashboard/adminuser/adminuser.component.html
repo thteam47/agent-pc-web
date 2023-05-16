@@ -1,0 +1,8 @@
+áaf
+<mat-list>
+  <mat-list-item *ngFor="let survey of surveys">
+    <h3 mat-line>{{survey.title}}</h3>
+    <p mat-line>{{survey.description}}</p>
+    <button mat-button color="primary" (click)="selectSurvey(survey)">Chọn</button>
+  </mat-list-item>
+</mat-list>

@@ -1,0 +1,11 @@
+<section>
+  <div class="text-center">
+    <span>Do Survey</span>
+  </div>
+
+  <form [formGroup]="form">
+    <div class="col-12" *ngIf="data">
+      <survey [model]="data"></survey>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,90 @@
+<div class="survey-for-you">
+    <p>Your Categories</p>
+</div>
+
+<mat-table [dataSource]="datas">
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let product">{{ product.name }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="category_id">
+        <mat-header-cell *matHeaderCellDef>Category ID</mat-header-cell>
+        <mat-cell *matCellDef="let product">{{ product.category_id }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="domain_id">
+        <mat-header-cell *matHeaderCellDef>Domain ID</mat-header-cell>
+        <mat-cell *matCellDef="let product">{{ product.domain_id }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="['name', 'category_id', 'domain_id']"></mat-header-row>
+    <mat-row *matRowDef="let product; columns: ['name', 'category_id', 'domain_id']"></mat-row>
+</mat-table>
+<div class="text-center">
+    <button mat-button class="mx-auto recommend" color="primary" (click)="recommendcbf()">Recommend CBF
+    </button>
+</div>
+
+<div class="survey-for-you">
+    <p>Your Categories</p>
+</div>
+
+<mat-table [dataSource]="datasRecommendCbf">
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let product">{{ product.name }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="category_id">
+        <mat-header-cell *matHeaderCellDef>Category ID</mat-header-cell>
+        <mat-cell *matCellDef="let product">{{ product.category_id }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="domain_id">
+        <mat-header-cell *matHeaderCellDef>Domain ID</mat-header-cell>
+        <mat-cell *matCellDef="let product">{{ product.domain_id }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="process_data">
+        <mat-header-cell *matHeaderCellDef>Process Data</mat-header-cell>
+        <mat-cell *matCellDef="let product">{{ product.process_data }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="['name', 'category_id', 'domain_id', 'process_data']"></mat-header-row>
+    <mat-row *matRowDef="let product; columns: ['name', 'category_id', 'domain_id', 'process_data']"></mat-row>
+</mat-table>
+
+<div class="text-center">
+    <button mat-button class="mx-auto recommend" color="primary" (click)="recommendcf()">Recommend CF
+    </button>
+</div>
+
+<div class="survey-for-you">
+    <p>Your Categories</p>
+</div>
+
+<mat-table [dataSource]="datasRecommendCf">
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let product">{{ product.name }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="category_id">
+        <mat-header-cell *matHeaderCellDef>Category ID</mat-header-cell>
+        <mat-cell *matCellDef="let product">{{ product.category_id }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="domain_id">
+        <mat-header-cell *matHeaderCellDef>Domain ID</mat-header-cell>
+        <mat-cell *matCellDef="let product">{{ product.domain_id }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="process_data">
+        <mat-header-cell *matHeaderCellDef>Process Data</mat-header-cell>
+        <mat-cell *matCellDef="let product">{{ product.process_data }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="['name', 'category_id', 'domain_id', 'process_data']"></mat-header-row>
+    <mat-row *matRowDef="let product; columns: ['name', 'category_id', 'domain_id', 'process_data']"></mat-row>
+</mat-table>

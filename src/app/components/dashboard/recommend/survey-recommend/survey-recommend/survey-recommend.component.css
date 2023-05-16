@@ -1,0 +1,19 @@
+.mat-form-field {
+    width: 100%;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-disabled,
+::ng-deep .mat-form-field-outline {
+    opacity: 0;
+}
+
+.text-center {
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+ng-star-inserted {
+    font-weight: 300 !important;
+}

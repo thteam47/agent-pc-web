@@ -1,0 +1,14 @@
+[
+    {
+        "nameMenu": "Survey",
+        "redirect": "/dashboard",
+        "icon": "question_answer",
+        "show": true
+    },
+    {
+        "nameMenu": "Recommend",
+        "redirect": "/dashboard/recommend",
+        "icon": "recommend",
+        "show": true
+    }
+]

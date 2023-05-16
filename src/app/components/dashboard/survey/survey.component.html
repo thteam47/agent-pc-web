@@ -1,0 +1,20 @@
+<mat-list>
+  <ng-container *ngIf="datas.length > 0; else noSurveys">
+    <div class="survey-for-you">
+      <p>Survey for you</p>
+    </div>
+    <mat-list-item *ngFor="let survey of datas; let i = index">
+      <h4 class="col-2  mat-text-weight-bold" mat-line>Survey {{i+1}}</h4>
+      <h3 class="col-6" mat-line>{{survey.name}}</h3>
+      <!-- <p mat-line>{{survey.name}}</p> -->
+      <button mat-button color="primary" (click)="selectSurvey(survey)">Do survey
+      </button>
+    </mat-list-item>
+  </ng-container>
+</mat-list>
+
+<ng-template #noSurveys>
+  <div class="survey-for-you">
+    <p>There are currently no surveys available</p>
+  </div>
+</ng-template>
