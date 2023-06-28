@@ -35,6 +35,7 @@ import { SurveyModule } from "survey-angular-ui";
 import { CreateComponent } from './survey/createUpdate/create/create.component';
 import { RecommendComponent } from './recommend/recommend.component';
 import { SurveyRecommendComponent } from './recommend/survey-recommend/survey-recommend/survey-recommend.component';
+import { FakeDataComponent } from './fake-data/fake-data.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { SurveyRecommendComponent } from './recommend/survey-recommend/survey-re
     NewServerComponent,
     RecommendComponent,
     SurveyRecommendComponent,
+    FakeDataComponent,
   ],
   imports: [
     CommonModule,

@@ -30,6 +30,12 @@ export class SurveyService {
     return this.httpClient.get(`${apiUrl}/get_survey_by_user?ctx.token_agent=${token}`).pipe();
   }
 
+  getSurveyByTenantId() {
+    const token = localStorage.getItem('tokenAgent');
+    const tenantId = localStorage.getItem('tenantId');
+    return this.httpClient.get(`${apiUrl}/get_survey_by_tenant/${tenantId}?ctx.token_agent=${token}`).pipe();
+  }
+
   getCategoryByReommendTenant() {
     const token = localStorage.getItem('tokenAgent');
     return this.httpClient.get(`${apiUrl}/get_categories_by_recommend_tenant?ctx.token_agent=${token}`).pipe();

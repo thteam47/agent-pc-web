@@ -15,6 +15,8 @@ import { ServerService } from "../../../services/server.service";
 import { ErrorToastrService } from "../../../services/error-toastr.service";
 import { SurveyService } from 'src/app/services/survey.service';
 import { CreateComponent } from './createUpdate/create/create.component';
+import { Tenant } from 'src/app/interface/customer';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-survey',
@@ -83,14 +85,19 @@ export class SurveyComponent implements OnInit {
     });
   }
 
-  constructor(public dialog: MatDialog, private toastr: ToastrService, private panigator: PanigatorService, private router: Router, private serverService: ServerService, private errToastr: ErrorToastrService, private surveyService: SurveyService,) {
+  constructor(public dialog: MatDialog, private toastr: ToastrService, private panigator: PanigatorService, private router: Router, private serverService: ServerService, private errToastr: ErrorToastrService, private surveyService: SurveyService, private customerService: CustomerService) {
     this.limitPage = panigator.limitPage;
     this.numberPage = panigator.numberPage;
   }
 
   ngOnInit(): void {
     // this.initializeColumnProperties();
-    this.getList();
+    const typeUser = localStorage.getItem('typeUser') || ""
+    if (typeUser === "customer") {
+      this.getTenants();
+    } else {
+      this.getList();
+    }
   }
   getList() {
     this.surveyService.getSurveyByUser().subscribe((res: any) => {
@@ -117,6 +124,16 @@ export class SurveyComponent implements OnInit {
     },
       (err: any) => {
         //this.router.navigate(['/dashboard']);
+        this.errToastr.errToastr(err);
+      }
+    )
+  }
+
+  getListSurveyByCustomer() {
+    this.surveyService.getSurveyByTenantId().subscribe((res: any) => {
+      this.datas = res.data
+    },
+      (err: any) => {
         this.errToastr.errToastr(err);
       }
     )
@@ -194,5 +211,34 @@ export class SurveyComponent implements OnInit {
       );
     });
   }
+  selectedTenantId: string = ""
+  tenants: Tenant[] = []
+  getTenants() {
+    this.customerService.getTenants().subscribe((res: any) => {
+      console.log(res)
+      if (res.data.length > 0) {
+        this.selectedTenantId = res.data[0].tenant_id
+        localStorage.setItem("tenantId", this.selectedTenantId)
+      }
+      console.log(this.selectedTenantId);
 
+      this.tenants = res.data
+      this.getListSurveyByCustomer()
+    },
+      (err: any) => {
+        this.router.navigate(['/dashboard']);
+        this.errToastr.errToastr(err.error.err);
+      }
+    )
+  }
+  onSelectChange(event: any) {
+    const selectedValue = event.value;
+    localStorage.setItem("tenantId", selectedValue)
+    const typeUser = localStorage.getItem('typeUser') || ""
+    if (typeUser === "customer") {
+      this.getTenants();
+    } else {
+      this.getList();
+    }
+  }
 }

@@ -1,3 +1,16 @@
+<div style="display: flex; justify-content: center;">
+  <div style="width: 400px;margin-top: 20px;">
+    <mat-form-field>
+      <mat-label>Tenant</mat-label>
+      <mat-select [(value)]="selectedTenantId" (selectionChange)="onSelectChange($event)">
+        <mat-option *ngFor="let item of tenants" [value]="item.tenant_id">
+          Tenant {{ item.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
 <mat-list>
   <ng-container *ngIf="datas.length > 0; else noSurveys">
     <div class="survey-for-you">

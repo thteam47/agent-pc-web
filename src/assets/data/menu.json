@@ -10,5 +10,11 @@
         "redirect": "/dashboard/recommend",
         "icon": "recommend",
         "show": true
+    },
+    {
+        "nameMenu": "Fake Data",
+        "redirect": "/dashboard/fake-data",
+        "icon": "recommend",
+        "show": true
     }
 ]

@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     localStorage.removeItem('tokenAgent');
     localStorage.removeItem('role');
+    localStorage.removeItem('tenantId');
+    localStorage.removeItem('typeUser');
     this.userService.prepareLogin("").subscribe((res: any) => {
       console.log(res);
       localStorage.setItem('tokenAgent', res.token_agent)
@@ -64,6 +66,9 @@ export class LoginComponent implements OnInit {
         this.userService.prepareLogin(tokenAgent).subscribe((res: any) => {
           console.log("res", res);
           localStorage.setItem('tokenAgent', res.token_agent)
+          if (domain === "") {
+            localStorage.setItem('typeUser', "customer")
+          }
           if (res.type_mfa !== "") {
             // this.router.navigate(['prepare-login'], {
             //   state: {

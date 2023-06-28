@@ -10,16 +10,18 @@ import { SurveyComponent } from './survey/survey.component';
 import { RecommendComponent } from './recommend/recommend.component';
 import { SurveyService } from 'src/app/services/survey.service';
 import { SurveyRecommendComponent } from './recommend/survey-recommend/survey-recommend/survey-recommend.component';
+import { FakeDataComponent } from './fake-data/fake-data.component';
 
 const routes: Routes = [
   {
     path: '', component: DashboardComponent, children: [
-      { path: '',component: SurveyComponent},
+      { path: '', component: SurveyComponent },
       { path: 'account', component: AccountComponent },
       { path: 'newserver', component: NewServerComponent },
       { path: 'user', component: AdminuserComponent },
       { path: 'recommend', component: RecommendComponent },
-      { path: 'detailstatus/:id', component: DetailstatusComponent },      
+      { path: 'fake-data', component: FakeDataComponent },
+      { path: 'detailstatus/:id', component: DetailstatusComponent },
     ]
   },
 ];

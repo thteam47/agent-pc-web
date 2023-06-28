@@ -1,0 +1,45 @@
+<div style="display: flex; justify-content: center;">
+    <div style="width: 400px;margin-top: 20px;">
+        <mat-form-field>
+            <mat-label>Tenant</mat-label>
+            <mat-select [(value)]="selectedTenantId" (selectionChange)="onSelectChange($event)">
+                <mat-option *ngFor="let item of tenants" [value]="item.tenant_id">
+                    Tenant {{ item.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>
+
+
+<mat-toolbar>
+    <div class="demo-button-2">
+        <button mat-raised-button class="demo-button" (click)="genKey()">
+            Gen Keyinfo
+        </button>
+        <button mat-raised-button class="demo-button" (click)="doSurvey()">
+            Do survey
+        </button>
+
+        <button mat-raised-button class="demo-button" (click)="processData()">
+            Process Data
+        </button>
+
+        <button mat-raised-button class="demo-button" (click)="sendDataOnePart()">
+            Send Data Survey One Part
+        </button>
+
+        <br style="margin-top: 20px"> Two Part <br>
+        <button mat-raised-button class="demo-button" (click)="sendDataTwoPart3()">
+            Send Process Data Survey Phase 3
+        </button>
+
+        <button mat-raised-button class="demo-button" (click)="sendDataTwoPart4()">
+            Send Process Data Survey Phase 4
+        </button>
+
+        <button mat-raised-button class="demo-button" (click)="sendDataTwoPart5()">
+            Send Process Data Survey Phase 5
+        </button>
+    </div>
+</mat-toolbar>
